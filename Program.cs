@@ -16,6 +16,24 @@ class DigitalNumbers
     try
     {
       // print output
+      var matricies = input?.Select(c => matrixCollection.GetMatrix(c));
+      var heightOfMatrix = matricies?.First().Length;
+
+      for (var lineNumber = 0; lineNumber < heightOfMatrix; ++lineNumber)
+      {
+        var lines = matricies?.Select(m => m[lineNumber]);
+        if (lines != null)
+        {
+          foreach (var line in lines)
+          {
+            foreach (string element in line)
+            {
+              Console.Write(element);
+            }
+          }
+          Console.WriteLine();
+        }
+      }
     }
     catch (Exception e)
     {
