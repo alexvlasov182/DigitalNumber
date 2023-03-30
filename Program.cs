@@ -9,15 +9,18 @@ class DigitalNumbers
     // validation
     var intValidator = new IntValidator();
     intValidator.Validate(input);
-    Console.WriteLine(input);
+
+    // matrix collection
+    var matrixCollection = new MatrixCollection();
+
     try
     {
       // print output
     }
-    catch (System.Exception)
+    catch (Exception e)
     {
-
-      throw;
+      Console.WriteLine(e.Message);
+      return;
     }
   }
 
@@ -34,4 +37,26 @@ class DigitalNumbers
     }
   }
   // create data for our task
+  public class MatrixCollection
+  {
+    public string[][] GetMatrix(char c)
+    {
+      return c switch
+      {
+        '0' => new string[][]
+        {
+          new [] {" ", "_", " "},
+          new [] {"|", " ", "|"},
+          new [] {"|", "_", "|"},
+        },
+        '1' => new string[][]
+        {
+          new [] {" ", " ", " "},
+          new [] {" ", " ", "|"},
+          new [] {" ", " ", "|"},
+        },
+        _ => throw new ArgumentOutOfRangeException(nameof(c), c, "no exists matrix for this integer")
+      };
+    }
+  }
 }
