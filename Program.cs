@@ -4,6 +4,8 @@ class DigitalNumbers
 {
   static void Main()
   {
+    var input = Console.ReadLine();
+    Console.WriteLine(input);
     // validation
 
     try
